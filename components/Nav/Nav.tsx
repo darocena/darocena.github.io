@@ -8,7 +8,7 @@ const Nav = () => {
             <StyledLink href="/">
                 Home
             </StyledLink>
-            <StyledLink href="/portfolioPage">
+            <StyledLink href="/about">
                 About
             </StyledLink>
             <StyledLink href="/contact">
@@ -30,9 +30,6 @@ const Nav = () => {
     `;
 
     const StyledLink = styled(Link)`
-    //Add hover animation with transition using styled components
-    //Make borders rounded with pill shape
-    //Center the text
         display: flex;
         justify-content: center;
         align-items: center;
