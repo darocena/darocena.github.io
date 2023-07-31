@@ -16,6 +16,7 @@ import { articleList } from "@/components/ArticleList/articles";
 import FlipCards from "@/components/FlipCardGrid/FlipCardGrid";
 import { flipCards } from "@/components/FlipCardGrid/flipCards";
 import FlipCardsGrid from "@/components/FlipCardGrid/FlipCardGrid";
+import PageContainer from "@/components/PageContainer/PageContainer";
 
 const images = [
   "https://via.placeholder.com/800x400/ff0000/ffffff?text=Slide+1",
@@ -33,10 +34,12 @@ export default function Home() {
       </Head>
       <Header headerText={"Home"} />
       <Nav />
+      <PageContainer>
       <Carousel slides={CarouselData} />
       <Article />
       <FlipCardsGrid flipCards={flipCards} />
       <ArticleList articles={articleList} />
+      </PageContainer>
     </>
   );
 }
