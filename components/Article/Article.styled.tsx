@@ -38,14 +38,9 @@ export const ArticleBody = styled.p`
 
 //Create article image component
 export const ArticleImage = styled.img`
-  //make the image one quarter of its original size
-    width: 25%;
-    height: 25%;
     margin-top: 2rem;
-    margin-bottom: 1rem;
-    //make the image a circle
+    width: 15%;
     border-radius: 50%;
-    //make the image centered
     display: block;
     margin-left: auto;
     margin-right: auto;
