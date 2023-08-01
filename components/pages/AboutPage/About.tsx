@@ -1,13 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import Header from "../Header/Header";
-import Nav from "../Nav/Nav";
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-`;
+import Header from "../../Header/Header";
+import Nav from "../../Nav/Nav";
+import PageContainer from "@/components/PageContainer/PageContainer";
 
 const AuthorMessageContainer = styled.div`
   display: flex;
@@ -39,8 +35,7 @@ const AboutPage = () => {
   return (<>
   <Header headerText={"About"}/>
   <Nav/>
-    <Container>
-      
+    <PageContainer>
       <AuthorMessageContainer>
         <AuthorImage src={authorPhotoUrl} alt="Author" />
         <AuthorName>John Doe</AuthorName>
@@ -49,7 +44,7 @@ const AboutPage = () => {
           dreams.&quot;
         </AuthorQuote>
       </AuthorMessageContainer>
-    </Container>
+    </PageContainer>
     </>
   );
 };

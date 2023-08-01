@@ -1,10 +1,8 @@
 
+import AboutPage from "@/components/pages/AboutPage/About";
 
-import AboutPage from "@/components/PortfolioPage/About"
-export default function PortfolioNextPage(){
-    return (
-        <AboutPage />
-    )
-    }
+export default function PortfolioNextPage() {
+  return <AboutPage />;
+}
 
 
