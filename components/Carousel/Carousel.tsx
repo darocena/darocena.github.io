@@ -1,7 +1,7 @@
-  
-  import React, { useRef, useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { CarouselData } from './CarouselData';
+import React, { useRef, useState, useEffect } from "react";
+import styled from "styled-components";
+import { CarouselData } from "./CarouselData";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 interface CarouselProps {
   slides: { image: string; title: string; text: string }[];
@@ -12,9 +12,7 @@ const CarouselContainer = styled.div`
   overflow: hidden;
   width: 99%;
   margin: 24px auto;
-  //make the borders rounded
-    border-radius: 10px;
-
+  border-radius: 10px;
 `;
 
 const CarouselTrack = styled.div`
@@ -28,9 +26,7 @@ const CarouselSlide = styled.div`
 `;
 
 const CarouselImage = styled.img`
-//make it responsive
-    height: 100%;
-
+  height: 100%;
   width: 50%;
   object-fit: cover;
 `;
@@ -38,9 +34,7 @@ const CarouselImage = styled.img`
 const CarouselContent = styled.div`
   width: 50%;
   padding: 4rem;
-  //put some soft gray background
-    background-color: #000;
-
+  background-color: #000;
 `;
 
 const CarouselTitle = styled.h2`
@@ -49,7 +43,7 @@ const CarouselTitle = styled.h2`
 `;
 
 const CarouselText = styled.p`
-color: #fff;
+  color: #fff;
 `;
 
 const ArrowButton = styled.button`
@@ -58,35 +52,29 @@ const ArrowButton = styled.button`
   transform: translateY(-50%);
   background: black;
   border: solid 1px gray;
-  //make it a circle
-    border-radius: 50%;
-
+  border-radius: 50%;
   cursor: pointer;
   font-size: 2rem;
   color: #fff;
-  //add color invertion animation on hover
-    &:hover {
+
+  &:hover {
     animation: invert 1s infinite;
-    }
-    @keyframes invert {
+  }
+  @keyframes invert {
     0% {
-    filter: invert(0%);
+      filter: invert(0%);
     }
     50% {
-    filter: invert(100%);
+      filter: invert(100%);
     }
     100% {
-    filter: invert(0%);
+      filter: invert(0%);
     }
-    }
-
-  
+  }
 `;
-
 
 const LeftArrow = styled(ArrowButton)`
   left: 1%;
-  
 `;
 
 const RightArrow = styled(ArrowButton)`
@@ -106,24 +94,22 @@ const Dot = styled.span<{ active: boolean }>`
   width: 1rem;
   margin: 0 0.5rem;
   border-radius: 50%;
-  background-color: ${({ active }) => (active ? 'white' : 'gray')};
+  background-color: ${({ active }) => (active ? "white" : "gray")};
   cursor: pointer;
-  //add pulse animation on hover
-    &:hover {
+  &:hover {
     animation: pulse 1s infinite;
-    }
-    @keyframes pulse {
+  }
+  @keyframes pulse {
     0% {
-    transform: scale(1);
+      transform: scale(1);
     }
     50% {
-    transform: scale(1.2);
+      transform: scale(1.2);
     }
     100% {
-    transform: scale(1);
+      transform: scale(1);
     }
-    }
-    
+  }
 `;
 
 const Carousel: React.FC<CarouselProps> = ({ slides = CarouselData }) => {
@@ -157,16 +143,20 @@ const Carousel: React.FC<CarouselProps> = ({ slides = CarouselData }) => {
             <CarouselImage src={slide.image} alt={slide.title} />
             <CarouselContent>
               <CarouselTitle>{slide.title}</CarouselTitle>
-              <CarouselText>{slide.text}</CarouselText> 
+              <CarouselText>{slide.text}</CarouselText>
             </CarouselContent>
           </CarouselSlide>
         ))}
       </CarouselTrack>
-      <LeftArrow onClick={handlePrevClick}>{'<'}</LeftArrow>
-      <RightArrow onClick={handleNextClick}>{'>'}</RightArrow>
+      <LeftArrow onClick={handlePrevClick}>{"<"}</LeftArrow>
+      <RightArrow onClick={handleNextClick}>{">"}</RightArrow>
       <DotContainer>
         {slides.map((_, index) => (
-          <Dot key={index} active={currentSlide === index} onClick={() => handleDotClick(index)} />
+          <Dot
+            key={index}
+            active={currentSlide === index}
+            onClick={() => handleDotClick(index)}
+          />
         ))}
       </DotContainer>
     </CarouselContainer>
@@ -174,5 +164,3 @@ const Carousel: React.FC<CarouselProps> = ({ slides = CarouselData }) => {
 };
 
 export default Carousel;
-
-  
