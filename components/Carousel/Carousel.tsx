@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import { CarouselData } from "./CarouselData";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
@@ -10,6 +10,7 @@ interface CarouselProps {
 const CarouselContainer = styled.div`
   position: relative;
   overflow: hidden;
+  max-height: 25vh;
   width: 99%;
   margin: 24px auto;
   border-radius: 10px;
@@ -26,8 +27,8 @@ const CarouselSlide = styled.div`
 `;
 
 const CarouselImage = styled.img`
-  height: 100%;
-  width: 50%;
+  height: 55%;
+  width: 55%;
   object-fit: cover;
 `;
 
@@ -116,24 +117,31 @@ const Carousel: React.FC<CarouselProps> = ({ slides = CarouselData }) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const track = trackRef.current;
-    if (track) {
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-  }, [currentSlide]);
-
   const handlePrevClick = () => {
     setCurrentSlide((currentSlide - 1 + slides.length) % slides.length);
   };
 
-  const handleNextClick = () => {
+  const handleNextClick = useCallback(() => {
     setCurrentSlide((currentSlide + 1) % slides.length);
-  };
+  }, [currentSlide, slides.length])
 
   const handleDotClick = (index: number) => {
     setCurrentSlide(index);
   };
+  
+  useEffect(() => {
+    const timer = setTimeout(handleNextClick, 5000);
+    clearTimeout(timer);
+    const track = trackRef.current;
+    if (track) {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    return () => {
+      clearInterval(timer);
+    };
+  }, [currentSlide, handleNextClick]);
+
+  
 
   return (
     <CarouselContainer>

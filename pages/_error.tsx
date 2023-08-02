@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { NextPage } from "next";
-import { PageProps } from "@/types/page";
 
 const ErrorContainer = styled.div`
   display: flex;
@@ -62,20 +61,5 @@ ErrorPage.getInitialProps = ({ res, err }) => {
     },
   };
 };
-
-/* export async function getStaticProps(): Promise<{ props: PageProps }> {
-  return {
-    props: {
-      meta: {
-        title: "Error",
-        keywords: "error, 404, 500, 403, 401, 400, 503, 502, 504, 505",
-        description: "Error page",
-      },
-      header: {
-        headerText: "Uh oh! Something went wrong!",
-      },
-    },
-  };
-} */
 
 export default ErrorPage;

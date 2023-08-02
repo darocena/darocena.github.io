@@ -19,6 +19,6 @@ export default Header;
 const HeaderContainer = styled.header`
   background-color: #000;
   color: #fff;
-  padding: 1rem;
+  padding: 0.2rem;
   text-align: center;
 `;

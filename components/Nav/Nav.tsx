@@ -27,6 +27,28 @@ const Nav = () => {
         display: flex;
         justify-content: center;
         align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        //make the nav bar responsive
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 320px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 280px) {
+            flex-direction: column;
+        }
+        
+
     `;
 
     const StyledLink = styled(Link)`
