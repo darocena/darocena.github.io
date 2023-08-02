@@ -7,7 +7,7 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const ArticleCard = styled.div`
+const Card = styled.div`
   width: 15%;
   height: 600px;
   margin: 10px;
@@ -26,46 +26,46 @@ const ArticleCard = styled.div`
   }
 `;
 
-const ArticleImage = styled.img`
+const CardImage = styled.img`
   width: 100%;
   height: 70%;
   object-fit: cover;
 `;
 
-const ArticleTitle = styled.h2`
+const CardTitle = styled.h2`
   margin: 20px;
   font-size: 24px;
   font-weight: bold;
 `;
 
-const ArticleText = styled.p`
+const CardText = styled.p`
   margin: 20px;
   font-size: 16px;
   color: #666;
 `;
 
-interface Article {
+interface Card {
   title: string;
   text: string;
   imageUrl: string;
 }
 
-interface ArticleListProps {
-  articles: Article[];
+interface CardListProps {
+  articles: Card[];
 }
 
-const ArticleList = ({ articles }: ArticleListProps) => {
+const CardList = ({ articles }: CardListProps) => {
   return (
     <Container>
       {articles.map((article) => (
-        <ArticleCard key={article.title}>
-          <ArticleImage src={article.imageUrl} alt={article.title} />
-          <ArticleTitle>{article.title}</ArticleTitle>
-          <ArticleText>{article.text}</ArticleText>
-        </ArticleCard>
+        <Card key={article.title}>
+          <CardImage src={article.imageUrl} alt={article.title} />
+          <CardTitle>{article.title}</CardTitle>
+          <CardText>{article.text}</CardText>
+        </Card>
       ))}
     </Container>
   );
 };
 
-export default ArticleList;
+export default CardList;
