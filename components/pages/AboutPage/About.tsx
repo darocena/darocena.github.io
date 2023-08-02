@@ -37,8 +37,6 @@ const AuthorQuote = styled.p`
 const authorPhotoUrl = "https://i.pinimg.com/736x/0b/2d/ae/0b2dae8928e178f368b6d152a1367b7f--cats-meowing-kitty-cats.jpg";
 const AboutPage = () => {
   return (<>
-  <Header headerText={"About"}/>
-  <Nav/>
     <Container>
       
       <AuthorMessageContainer>
