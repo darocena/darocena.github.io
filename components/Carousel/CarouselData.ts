@@ -15,6 +15,6 @@ export const CarouselData = [
       title: "Cat Toys",
       text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       image:
-        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61xkdUkFieL._AC_SX355_.jpg",
+        "https://rawznaturalpetfood.com/wp-content/uploads/Screen-Shot-2022-02-28-at-2.29.34-PM.png",
     },
   ];

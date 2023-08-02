@@ -6,14 +6,11 @@ import styles from "@/styles/Home.module.css";
 //import my components
 import Header from "@/components/Header/Header";
 import Nav from "@/components/Nav/Nav";
-import FlipCard from "@/components/FlipCard/FlipCard";
 import Article from "@/components/Article/Article";
-import MagicCard from "@/components/MagicCard/MagicCard";
 import Carousel from "@/components/Carousel/Carousel";
 import { CarouselData } from "@/components/Carousel/CarouselData";
-import ArticleList from "@/components/ArticleList/ArticleList";
-import { articleList } from "@/components/ArticleList/articles";
-import FlipCards from "@/components/FlipCardGrid/FlipCardGrid";
+import ArticleList from "@/components/CardList/CardList";
+import { articleList } from "@/components/CardList/articles";
 import { flipCards } from "@/components/FlipCardGrid/flipCards";
 import FlipCardsGrid from "@/components/FlipCardGrid/FlipCardGrid";
 import PageContainer from "@/components/PageContainer/PageContainer";
