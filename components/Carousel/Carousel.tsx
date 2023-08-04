@@ -30,21 +30,60 @@ const CarouselImage = styled.img`
   height: 55%;
   width: 55%;
   object-fit: cover;
+  //make the image responsive
+  max-width: 55%;
+  height: auto;
+  @media (max-width: 768px) {
+    width: 50%;
+    height: 50%;
+  }
+  @media (max-width: 480px) {
+    width: 50%;
+    height: 60%;
+  }
+  
 `;
 
 const CarouselContent = styled.div`
   width: 50%;
+  display: flex;
+  flex-direction: column;
   padding: 4rem;
   background-color: #000;
+  //make this div responsive
+  @media (max-width: 768px) {
+    width: 50%;
+    padding: 2rem;
+  }
+  @media (max-width: 320px) {
+    width: 50%;
+    padding: 2rem;
+  }
 `;
 
 const CarouselTitle = styled.h2`
   margin-top: 0;
   color: #fff;
+  //make it responsive
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const CarouselText = styled.p`
   color: #fff;
+  //make it responsive
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  } 
+  @media (max-width: 320px) {
+    font-size: 1rem;
+  }
 `;
 
 const ArrowButton = styled.button`

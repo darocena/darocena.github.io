@@ -42,13 +42,11 @@ const Nav = () => {
 
         @media (max-width: 320px) {
             flex-direction: column;
-        }
+    }
 
         @media (max-width: 280px) {
             flex-direction: column;
         }
-        
-
     `;
 
     const StyledLink = styled(Link)`
