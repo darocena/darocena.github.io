@@ -1,4 +1,3 @@
-//Create a navigation bar component with next.js and styled-components
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -18,7 +17,6 @@ const Nav = () => {
     )
     }
 
-    //Create NavContainer styled component
     const NavContainer = styled.nav`
         background-color: #000;
         color: #fff;
@@ -27,6 +25,25 @@ const Nav = () => {
         display: flex;
         justify-content: center;
         align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 320px) {
+            flex-direction: column;
+    }
+
+        @media (max-width: 280px) {
+            flex-direction: column;
+        }
     `;
 
     const StyledLink = styled(Link)`

@@ -12,6 +12,7 @@ const GridContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
+  width: 100%;
 `;
 
 const FlipCardsGrid: React.FC<FlipCardsGridProps> = ({ flipCards }) => {
