@@ -43,7 +43,6 @@ export const ArticleImage = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  //make the image responsive
   max-width: 100%;
   height: auto;
   @media (max-width: 768px) {

@@ -1,7 +1,5 @@
 
-//Create a Header component with Next.js and styled-components
 import styled from 'styled-components';
-//create interface for the Header component with a prop of headerText
 export interface HeaderProps {
   headerText?: string;
 }

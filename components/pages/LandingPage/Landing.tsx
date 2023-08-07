@@ -8,12 +8,10 @@ import { flipCards } from "@/components/FlipCardGrid/flipCards";
 import React from "react";
 import styled from "styled-components";
 
-//create a grid container styled component for the article
 const ArticlesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 4fr);
   grid-gap: 1rem;
-  //make the grid responsive
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }

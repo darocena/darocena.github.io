@@ -19,6 +19,7 @@ const CarouselContainer = styled.div`
 const CarouselTrack = styled.div`
   display: flex;
   transition: transform 0.5s ease;
+  max-height: 25vh;
 `;
 
 const CarouselSlide = styled.div`
@@ -27,30 +28,18 @@ const CarouselSlide = styled.div`
 `;
 
 const CarouselImage = styled.img`
-  height: 55%;
-  width: 55%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  //make the image responsive
-  max-width: 55%;
-  height: auto;
-  @media (max-width: 768px) {
-    width: 50%;
-    height: 50%;
-  }
-  @media (max-width: 480px) {
-    width: 50%;
-    height: 60%;
-  }
-  
 `;
 
 const CarouselContent = styled.div`
   width: 50%;
   display: flex;
+  text-overflow: ellipsis;
   flex-direction: column;
   padding: 4rem;
   background-color: #000;
-  //make this div responsive
   @media (max-width: 768px) {
     width: 50%;
     padding: 2rem;
@@ -64,7 +53,6 @@ const CarouselContent = styled.div`
 const CarouselTitle = styled.h2`
   margin-top: 0;
   color: #fff;
-  //make it responsive
   @media (max-width: 768px) {
     font-size: 2rem;
     margin-bottom: 0.5rem;
@@ -77,10 +65,9 @@ const CarouselTitle = styled.h2`
 
 const CarouselText = styled.p`
   color: #fff;
-  //make it responsive
   @media (max-width: 768px) {
     font-size: 1.5rem;
-  } 
+  }
   @media (max-width: 320px) {
     font-size: 1rem;
   }
@@ -110,6 +97,9 @@ const ArrowButton = styled.button`
     100% {
       filter: invert(0%);
     }
+  }
+  @media (max-width: 480px) {
+    display: none;
   }
 `;
 
@@ -152,6 +142,22 @@ const Dot = styled.span<{ active: boolean }>`
   }
 `;
 
+const ImageContainer = styled.div`
+  width: 55.2%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 768px) {
+    width: 50%;
+    height: 50%;
+  }
+  @media (max-width: 480px) {
+    width: 65%;
+    height: 100%;
+  }
+`;
+
 const Carousel: React.FC<CarouselProps> = ({ slides = CarouselData }) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -162,32 +168,32 @@ const Carousel: React.FC<CarouselProps> = ({ slides = CarouselData }) => {
 
   const handleNextClick = useCallback(() => {
     setCurrentSlide((currentSlide + 1) % slides.length);
-  }, [currentSlide, slides.length])
+  }, [currentSlide, slides.length]);
 
   const handleDotClick = (index: number) => {
     setCurrentSlide(index);
   };
-  
+
   useEffect(() => {
-    const timer = setTimeout(handleNextClick, 5000);
-    clearTimeout(timer);
     const track = trackRef.current;
     if (track) {
       track.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
-    return () => {
-      clearInterval(timer);
-    };
   }, [currentSlide, handleNextClick]);
 
-  
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    console.log(e);
+  };
 
   return (
     <CarouselContainer>
       <CarouselTrack ref={trackRef}>
         {slides.map((slide, index) => (
-          <CarouselSlide key={index}>
-            <CarouselImage src={slide.image} alt={slide.title} />
+          <CarouselSlide key={index} onDragStart={(e) => handleDragStart(e)}>
+            <ImageContainer>
+              <CarouselImage src={slide.image} alt={slide.title} />
+            </ImageContainer>
             <CarouselContent>
               <CarouselTitle>{slide.title}</CarouselTitle>
               <CarouselText>{slide.text}</CarouselText>
